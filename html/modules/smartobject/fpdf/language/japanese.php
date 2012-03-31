@@ -1,9 +1,11 @@
 <?php
+// $Id: japanese.php,v 1.3 2012/03/31 10:44:36 ohwada Exp $
+
 // 2008-10-01 K.OHWADA
 // mojibake (character garble) in Japanese
 // http://community.impresscms.org/modules/newbb/viewtopic.php?topic_id=2510&post_id=23635
 
-// $Id: japanese.php,v 1.2 2012/03/31 10:19:16 ohwada Exp $
+// Id: japanese.php 331 2007-12-23 16:01:11Z malanciault 
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //

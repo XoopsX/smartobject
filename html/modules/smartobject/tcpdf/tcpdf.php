@@ -1,4 +1,6 @@
 <?php
+// $Id: tcpdf.php,v 1.3 2012/03/31 10:36:54 ohwada Exp $
+
 // 2012-01-01 K.OHWADA
 // PHP 5.3 : ereg is deprecate
 
@@ -69,7 +71,7 @@
 // dullus for text Justification.
 // Bob Vincent (pillarsdotnet@users.sourceforge.net) for <li> value attribute.
 // Patrick Benny for text stretch suggestion on Cell().
-// Johannes G¸ntert for JavaScript support.
+// Johannes GÅEtert for JavaScript support.
 // Denis Van Nuffelen for Dynamic Form.
 // Jacek Czekaj for multibyte justification
 // Anthony Ferrara for the reintroduction of legacy image methods.
@@ -5892,7 +5894,7 @@ if(!class_exists('TCPDF', false)) {
 				$angle_x = -$angle_x;
 			}
 			if($angle_x <= -90 OR $angle_x >= 90 OR $angle_y <= -90 OR $angle_y >= 90)
-				$this->Error('Please use values between -90ÔøΩ and 90ÔøΩ for skewing');
+				$this->Error('Please use values between -90ÅEΩ and 90ÅEΩ for skewing');
 			$x*=$this->k;
 			$y=($this->h-$y)*$this->k;
 			//calculate elements of transformation matrix
@@ -6860,7 +6862,7 @@ if(!class_exists('TCPDF', false)) {
 			
 			// X8. All explicit directional embeddings and overrides are completely terminated at the end of each paragraph. Paragraph separators are not included in the embedding.
 			// X9. Remove all RLE, LRE, RLO, LRO, PDF, and BN codes.
-			// X10. The remaining rules are applied to each run of characters at the same level. For each run, determine the start-of-level-run (sor) and end-of-level-run (eor) type, either L or R. This depends on the higher of the two levels on either side of the boundary (at the start or end of the paragraph, the level of the ìotherî run is the base embedding level). If the higher level is odd, the type is R; otherwise, it is L.
+			// X10. The remaining rules are applied to each run of characters at the same level. For each run, determine the start-of-level-run (sor) and end-of-level-run (eor) type, either L or R. This depends on the higher of the two levels on either side of the boundary (at the start or end of the paragraph, the level of the ìotherÅErun is the base embedding level). If the higher level is odd, the type is R; otherwise, it is L.
 			
 			// 3.3.3 Resolving Weak Types
 			// Weak types are now resolved one level run at a time. At level run boundaries where the type of the character on the other side of the boundary is required, the type assigned to sor or eor is used.
@@ -7359,7 +7361,7 @@ if(!class_exists('TCPDF', false)) {
 		/*
 		* Adds a javascript
 		* @access public
-		* @author Johannes G¸ntert, Nicola Asuni
+		* @author Johannes GÅEtert, Nicola Asuni
 		* @since 2.1.002 (2008-02-12)
 		*/
 		public function IncludeJS($script) {
@@ -7369,7 +7371,7 @@ if(!class_exists('TCPDF', false)) {
 		/*
 		* Create a javascript PDF string.
 		* @access protected
-		* @author Johannes G¸ntert, Nicola Asuni
+		* @author Johannes GÅEtert, Nicola Asuni
 		* @since 2.1.002 (2008-02-12)
 		*/
 		protected function _putjavascript() {

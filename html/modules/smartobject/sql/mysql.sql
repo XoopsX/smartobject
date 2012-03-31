@@ -1,3 +1,4 @@
+# $Id: mysql.sql,v 1.3 2012/03/31 10:39:43 ohwada Exp $
 # 2012-01-01 K.OHWADA
 # TYPE=MyISAM -> ENGINE=MyISAM
 

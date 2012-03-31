@@ -1,4 +1,6 @@
 <?php
+// $Id: xoops_version.php,v 1.3 2012/03/31 10:41:39 ohwada Exp $
+
 // 2012-01-01 K.OHWADA
 // version 1.10
 
@@ -8,7 +10,7 @@
 // http://community.impresscms.org/modules/newbb/viewtopic.php?topic_id=2506&post_id=23622
 
 /**
-* $Id: xoops_version.php,v 1.2 2012/03/31 10:08:51 ohwada Exp $
+* Id: xoops_version.php 3439 2008-07-05 11:40:55Z malanciault
 
 * Module: SmartContent
 * Author: The SmartFactory <www.smartfactory.ca>
