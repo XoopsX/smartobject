@@ -1,9 +1,11 @@
 <?php
+// $Id: functions.php,v 1.3 2012/03/31 11:13:39 ohwada Exp $
+
 // 2012-01-01 K.OHWADA
 // PHP 5.3 : Assigning the return value of new by reference is now deprecated.
 
 /**
-* $Id: functions.php,v 1.2 2012/03/31 10:08:51 ohwada Exp $
+* Id: functions.php 3442 2008-07-05 11:45:59Z malanciault 
 * Module: SmartRental
 * Author: The SmartFactory <www.smartfactory.ca>
 * Licence: GNU
