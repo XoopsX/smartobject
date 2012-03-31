@@ -1,4 +1,6 @@
 <?php
+// $Id: text.php,v 1.3 2012/03/31 10:35:31 ohwada Exp $
+
 // 2012-01-01 K.OHWADA
 // PHP 5.3 : Assigning the return value of new by reference is now deprecated.
 
