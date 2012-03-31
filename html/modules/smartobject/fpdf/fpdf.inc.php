@@ -1,10 +1,12 @@
 <?php
+// $Id: fpdf.inc.php,v 1.3 2012/03/31 11:08:23 ohwada Exp $
+
 // 2008-10-01 K.OHWADA
 // FPDF 1.6 not require gif.php
 // set _MD_POSTEDON
 // http://community.impresscms.org/modules/newbb/viewtopic.php?topic_id=2510&post_id=23635
 
-// $Id: fpdf.inc.php,v 1.2 2012/03/31 10:16:23 ohwada Exp $
+// Id: fpdf.inc.php 331 2007-12-23 16:01:11Z malanciault 
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //

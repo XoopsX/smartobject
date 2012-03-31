@@ -1,10 +1,12 @@
 <?php
+// $Id: modinfo.php,v 1.3 2012/03/31 11:11:13 ohwada Exp $
+
 // 2008-10-01 K.OHWADA
 // BUG: undefined constant _AM_SOBJECT_ABOUT in file admin/menu.php in "Modules Administration"
 // http://community.impresscms.org/modules/newbb/viewtopic.php?topic_id=2506
 
 /**
-* $Id: modinfo.php,v 1.2 2012/03/31 10:17:45 ohwada Exp $
+* Id: modinfo.php 1593 2008-04-14 14:39:53Z malanciault 
 * Module: SmartContent
 * Author: The SmartFactory <www.smartfactory.ca>
 * Licence: GNU

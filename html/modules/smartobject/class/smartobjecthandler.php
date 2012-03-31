@@ -1,4 +1,6 @@
 <?php
+// $Id: smartobjecthandler.php,v 1.3 2012/03/31 11:04:54 ohwada Exp $
+
 // 2012-01-01 K.OHWADA
 // PHP 5.3 : Assigning the return value of new by reference is now deprecated.
 
@@ -7,7 +9,7 @@
  *
  * @license GNU
  * @author marcan <marcan@smartfactory.ca>
- * @version $Id: smartobjecthandler.php,v 1.2 2012/03/31 10:08:51 ohwada Exp $
+ * @version Id: smartobjecthandler.php 1190 2008-03-07 20:49:22Z fx2024 
  * @link http://smartfactory.ca The SmartFactory
  * @package SmartObject
  * @subpackage SmartObjectCore

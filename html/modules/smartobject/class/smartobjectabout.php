@@ -1,9 +1,11 @@
 <?php
+// $Id: smartobjectabout.php,v 1.3 2012/03/31 11:04:54 ohwada Exp $
+
 // 2012-01-01 K.OHWADA
 // PHP 5.3 : Assigning the return value of new by reference is now deprecated.
 
 /**
-* $Id: smartobjectabout.php,v 1.2 2012/03/31 10:08:51 ohwada Exp $
+* Id: smartobjectabout.php 159 2007-12-17 16:44:05Z malanciault 
 * Module: SmartObject
 * Author: The SmartFactory <www.smartfactory.ca>
 * Licence: GNU

@@ -1,4 +1,6 @@
 <?php
+// $Id: smartmetagen.php,v 1.3 2012/03/31 11:04:54 ohwada Exp $
+
 // 2012-01-01 K.OHWADA
 // PHP 5.3 : ereg is deprecate
 
@@ -7,7 +9,7 @@
  *
  * @license GNU
  * @author marcan <marcan@smartfactory.ca>
- * @version $Id: smartmetagen.php,v 1.2 2012/03/31 10:08:51 ohwada Exp $
+ * @version Id: smartmetagen.php 159 2007-12-17 16:44:05Z malanciault 
  * @link http://smartfactory.ca The SmartFactory
  * @package SmartObject
  * @subpackage SmartObjectCore

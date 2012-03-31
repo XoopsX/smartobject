@@ -1,4 +1,6 @@
 <?php
+// $Id: makepdf_class.php,v 1.3 2012/03/31 11:08:23 ohwada Exp $
+
 // 2012-01-01 K.OHWADA
 // PHP 5.3 : ereg is deprecate
 
@@ -11,7 +13,7 @@
 // Notice [PHP]: Undefined index:  HEIGHT
 // http://community.impresscms.org/modules/newbb/viewtopic.php?topic_id=2510&post_id=23635
 
-// $Id: makepdf_class.php,v 1.2 2012/03/31 10:08:51 ohwada Exp $
+// Id: makepdf_class.php 331 2007-12-23 16:01:11Z malanciault 
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
