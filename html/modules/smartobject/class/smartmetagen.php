@@ -1,11 +1,13 @@
 <?php
+// 2012-01-01 K.OHWADA
+// PHP 5.3 : ereg is deprecate
 
 /**
  * Containing the class to manage meta informations of the SmartObject framework
  *
  * @license GNU
  * @author marcan <marcan@smartfactory.ca>
- * @version $Id: smartmetagen.php,v 1.1 2012/03/31 09:52:49 ohwada Exp $
+ * @version $Id: smartmetagen.php,v 1.2 2012/03/31 10:08:51 ohwada Exp $
  * @link http://smartfactory.ca The SmartFactory
  * @package SmartObject
  * @subpackage SmartObjectCore
@@ -179,9 +181,17 @@ class SmartMetaGen
 		$description = $this->html2text($description);
 		$description = $this->purifyText($description);
 
-		$description = ereg_replace("([^\r\n])\r\n([^\r\n])", "\\1 \\2", $description);
-		$description = ereg_replace("[\r\n]*\r\n[\r\n]*", "\r\n\r\n", $description);
-		$description = ereg_replace("[ ]* [ ]*", ' ', $description);
+// ---
+// 2012-01-01 PHP 5.3 : ereg is deprecated
+//		$description = ereg_replace("([^\r\n])\r\n([^\r\n])", "\\1 \\2", $description);
+//		$description = ereg_replace("[\r\n]*\r\n[\r\n]*", "\r\n\r\n", $description);
+//		$description = ereg_replace("[ ]* [ ]*", ' ', $description);
+
+		$description = preg_replace("/([^\r\n])\r\n([^\r\n])/", "\\1 \\2", $description);
+		$description = preg_replace("/[\r\n]*\r\n[\r\n]*/", "\r\n\r\n", $description);
+		$description = preg_replace("/[ ]* [ ]*/", ' ', $description);
+// ---
+
 		$description = StripSlashes($description);
 
 		$this->_description = $description;
@@ -224,9 +234,16 @@ class SmartMetaGen
 		$text = $this->purifyText($text);
 		$text = $this->html2text($text);
 
-		$text = ereg_replace("([^\r\n])\r\n([^\r\n])", "\\1 \\2", $text);
-		$text = ereg_replace("[\r\n]*\r\n[\r\n]*", "\r\n\r\n", $text);
-		$text = ereg_replace("[ ]* [ ]*", ' ', $text);
+// ---
+// 2012-01-01 PHP 5.3 : ereg is deprecated
+//		$text = ereg_replace("([^\r\n])\r\n([^\r\n])", "\\1 \\2", $text);
+//		$text = ereg_replace("[\r\n]*\r\n[\r\n]*", "\r\n\r\n", $text);
+//		$text = ereg_replace("[ ]* [ ]*", ' ', $text);
+		$text = preg_replace("/([^\r\n])\r\n([^\r\n])/", "\\1 \\2", $text);
+		$text = preg_replace("/[\r\n]*\r\n[\r\n]*/", "\r\n\r\n", $text);
+		$text = preg_replace("/[ ]* [ ]*/", ' ', $text);
+// ---
+
 		$text = StripSlashes($text);
 		$text =
 

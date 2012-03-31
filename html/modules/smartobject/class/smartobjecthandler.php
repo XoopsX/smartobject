@@ -1,11 +1,13 @@
 <?php
+// 2012-01-01 K.OHWADA
+// PHP 5.3 : Assigning the return value of new by reference is now deprecated.
 
 /**
  * Contains the basis classes for managing any objects derived from SmartObjects
  *
  * @license GNU
  * @author marcan <marcan@smartfactory.ca>
- * @version $Id: smartobjecthandler.php,v 1.1 2012/03/31 09:52:49 ohwada Exp $
+ * @version $Id: smartobjecthandler.php,v 1.2 2012/03/31 10:08:51 ohwada Exp $
  * @link http://smartfactory.ca The SmartFactory
  * @package SmartObject
  * @subpackage SmartObjectCore
@@ -211,7 +213,13 @@ class SmartPersistableObjectHandler extends XoopsObjectHandler {
      * @return object {@link SmartObject}
      */
     function &create($isNew = true) {
+
+// ---
+// 2012-01-01 PHP 5.3 : Assigning the return value of new by reference is now deprecated.
+//    	$obj =  new $this->className($this);
     	$obj =& new $this->className($this);
+// ---
+
 		$obj->setImageDir($this->getImageUrl(), $this->getImagePath());
 		if (!$obj->handler) {
 			$obj->handler =& $this;

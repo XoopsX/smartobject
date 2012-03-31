@@ -1,5 +1,10 @@
 <?php
-// $Id: fpdf.inc.php,v 1.1 2012/03/31 09:52:32 ohwada Exp $
+// 2008-10-01 K.OHWADA
+// FPDF 1.6 not require gif.php
+// set _MD_POSTEDON
+// http://community.impresscms.org/modules/newbb/viewtopic.php?topic_id=2510&post_id=23635
+
+// $Id: fpdf.inc.php,v 1.2 2012/03/31 10:16:23 ohwada Exp $
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -32,8 +37,23 @@
 define('SSECTION_FPDF_PATH',XOOPS_ROOT_PATH.'/modules/smartobject/fpdf');
 define('FPDF_FONTPATH',SSECTION_FPDF_PATH.'/font/');
 
-require SSECTION_FPDF_PATH.'/gif.php';
+// -----
+// FPDF 1.6 not require gif.php
+//require SSECTION_FPDF_PATH.'/gif.php';
+// -----
+
 require SSECTION_FPDF_PATH.'/fpdf.php';
+
+// -----
+// set _MD_POSTEDON
+$file_lang = XOOPS_ROOT_PATH.'/modules/smartobject/language/'.$xoopsConfig['language'].'/fpdf.php';
+$file_eng  = XOOPS_ROOT_PATH.'/modules/smartobject/language/english/fpdf.php';
+if(is_readable($file_lang)){
+	include_once($file_lang);
+}elseif(is_readable($file_eng)){
+	include_once($file_eng);
+}
+// -----
 
 if(is_readable(SSECTION_FPDF_PATH.'/language/'.$xoopsConfig['language'].'.php')){
 	include_once(SSECTION_FPDF_PATH.'/language/'.$xoopsConfig['language'].'.php');
@@ -42,5 +62,6 @@ if(is_readable(SSECTION_FPDF_PATH.'/language/'.$xoopsConfig['language'].'.php'))
 }else{
 	die('No Language File Readable!');
 }
+
 include SSECTION_FPDF_PATH.'/makepdf_class.php';
 ?>

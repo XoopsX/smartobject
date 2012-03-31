@@ -1,5 +1,17 @@
 <?php
-// $Id: makepdf_class.php,v 1.1 2012/03/31 09:52:32 ohwada Exp $
+// 2012-01-01 K.OHWADA
+// PHP 5.3 : ereg is deprecate
+
+// 2008-10-01 K.OHWADA
+// Fatal error occurs if the image does not exist
+// irregular file is generated if there is the image
+// Notice [PHP]: Use of undefined constant SRC - assumed 'SRC'
+// Notice [PHP]: Undefined index:  IMG
+// Notice [PHP]: Undefined index:  WIDTH
+// Notice [PHP]: Undefined index:  HEIGHT
+// http://community.impresscms.org/modules/newbb/viewtopic.php?topic_id=2510&post_id=23635
+
+// $Id: makepdf_class.php,v 1.2 2012/03/31 10:08:51 ohwada Exp $
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -148,7 +160,11 @@ class PDF extends PDF_language
 	                $tag=strtoupper(array_shift($a2));
 	                $attr=array();
 	                foreach($a2 as $v)
-	                    if(ereg('^([^=]*)=["\']?([^"\']*)["\']?$',$v,$a3))
+// ---
+// 2012-01-01 PHP 5.3 : ereg is deprecated
+//	                    if(ereg('^([^=]*)=["\']?([^"\']*)["\']?$',$v,$a3))
+	                    if(preg_match('/^([^=]*)=["\']?([^"\']*)["\']?$/',$v,$a3))
+// ---
 	                        $attr[strtoupper($a3[1])]=$a3[2];
 	                $this->OpenTag($tag,$attr,$scale);
 	            }
@@ -178,11 +194,32 @@ class PDF extends PDF_language
 		    $this->ALIGN=$attr['ALIGN'];
 		    break;
 	        case 'IMG':
-		    $this->IMG=$attr['IMG'];
-		    $this->SRC=$attr['SRC'];
-		    $this->WIDTH=$attr['WIDTH'];
-		    $this->HEIGHT=$attr['HEIGHT'];
-	            $this->PutImage($attr[SRC],$scale);
+
+// -----
+// Notice [PHP]: Undefined index:  IMG
+// Notice [PHP]: Undefined index:  WIDTH
+// Notice [PHP]: Undefined index:  HEIGHT
+// Notice [PHP]: Use of undefined constant SRC - assumed 'SRC'
+//		        $this->IMG=$attr['IMG'];
+//		        $this->SRC=$attr['SRC'];
+//		        $this->WIDTH=$attr['WIDTH'];
+//		        $this->HEIGHT=$attr['HEIGHT'];
+//	            $this->PutImage($attr[SRC],$scale);
+				if ( isset($attr['IMG']) ) {
+					$this->IMG=$attr['IMG'];
+				}
+				if ( isset($attr['WIDTH']) ) {
+					$this->WIDTH=$attr['WIDTH'];
+				}
+				if ( isset($attr['HEIGHT']) ) {
+					$this->HEIGHT=$attr['HEIGHT'];
+				}
+				if ( isset($attr['SRC']) ) {
+					$this->SRC=$attr['SRC'];
+					$this->PutImage($attr['SRC'],$scale);
+				}
+// -----
+
 	            break;
 	        case 'TR':
 	        case 'BLOCKQUOTE':
@@ -284,6 +321,15 @@ class PDF extends PDF_language
 			$oposy=$this->GetY();
 			$url = str_replace(XOOPS_URL, XOOPS_ROOT_PATH, $url);
 			$iminfo=@getimagesize($url);
+
+// -----
+// Fatal error occurs if the image does not exist
+// Fatal error: Allowed memory size of xxx bytes exhausted
+			if ( !isset($iminfo[0]) || !isset($iminfo[1]) ) {
+				return;
+			}
+// -----
+
 			$iw=$scale * px2mm($iminfo[0]);
 			$ih=$scale * px2mm($iminfo[1]);
 			$iw = ($iw)?$iw:1;

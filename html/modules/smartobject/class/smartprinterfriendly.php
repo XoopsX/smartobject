@@ -1,7 +1,9 @@
 <?php
+// 2012-01-01 K.OHWADA
+// PHP 5.3 : Assigning the return value of new by reference is now deprecated.
 
 /**
-* $Id: smartprinterfriendly.php,v 1.1 2012/03/31 09:52:51 ohwada Exp $
+* $Id: smartprinterfriendly.php,v 1.2 2012/03/31 10:08:51 ohwada Exp $
 * Module: SmartObject
 * Author: The SmartFactory <www.smartfactory.ca>
 * Licence: GNU
@@ -41,7 +43,11 @@ class SmartPrinterFriendly
 
 		include_once XOOPS_ROOT_PATH . '/class/template.php';
 
-		$this->_tpl =& new XoopsTpl();
+// ---
+// 2012-01-01 PHP 5.3 : Assigning the return value of new by reference is now deprecated.
+//		$this->_tpl =& new XoopsTpl();
+		$this->_tpl =  new XoopsTpl();
+//---
 
 		$this->_tpl->assign('smartobject_print_pageTitle', $this->_pageTitle ? $this->_pageTitle : $this->_title);
 		$this->_tpl->assign('smartobject_print_title', $this->_title);
