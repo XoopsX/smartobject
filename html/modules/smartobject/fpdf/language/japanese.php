@@ -1,5 +1,9 @@
 <?php
-// $Id: japanese.php,v 1.1 2012/03/31 09:52:34 ohwada Exp $
+// 2008-10-01 K.OHWADA
+// mojibake (character garble) in Japanese
+// http://community.impresscms.org/modules/newbb/viewtopic.php?topic_id=2510&post_id=23635
+
+// $Id: japanese.php,v 1.2 2012/03/31 10:19:16 ohwada Exp $
 //  ------------------------------------------------------------------------ //
 //                XOOPS - PHP Content Management System                      //
 //                    Copyright (c) 2000 XOOPS.org                           //
@@ -28,6 +32,7 @@
 // URL: http://www.myweb.ne.jp/, http://www.xoops.org/, http://jp.xoops.org/ //
 // Project: The XOOPS Project                                                //
 // ------------------------------------------------------------------------- //
+
 require SSECTION_FPDF_PATH.'/japanese.php';
 
 // For end users
@@ -130,5 +135,51 @@ class PDF_language extends PDF_Japanese
 			die('<B>FPDF error: </B>'.$msg);
 		}
 	}
+
+//-----	
+// character garble in Japanese
+// overwrite class PDF_Japanese in fpdf/japanese.php 
+	function SJISWrite($h,$txt,$link)
+	{
+		$txt = $this->_jp_encoding($txt, 'SJIS-win', _CHARSET );
+		parent::SJISWrite($h,$txt,$link);
+	}
+
+// overwrite class FPDF in fpdf/fpdf.php 
+	function _putinfo()
+	{
+		$this->_out('/Producer '.$this->_textstring('FPDF '.FPDF_VERSION));
+		if(!empty($this->title))
+			$this->_out('/Title '. $this->_jp_putinfohexstring($this->title) );
+		if(!empty($this->subject))
+			$this->_out('/Subject '.$this->_jp_putinfohexstring($this->subject));
+		if(!empty($this->author))
+			$this->_out('/Author '.$this->_jp_putinfohexstring($this->author));
+		if(!empty($this->keywords))
+			$this->_out('/Keywords '.$this->_jp_putinfohexstring($this->keywords));
+		if(!empty($this->creator))
+			$this->_out('/Creator '.$this->_jp_putinfohexstring($this->creator));
+			
+		$this->_out('/CreationDate '.$this->_textstring('D:'.date('YmdHis')));
+	}
+
+	function _jp_putinfohexstring($s)
+	{
+		//Format a text string
+		//for infomation properties hex
+		$s = $this->_jp_encoding($s , 'UTF-16BE', _CHARSET ) ;
+		$s = '<' . 'FEFF' . strtoupper(bin2hex($s)) . '>'; // FEFF is BOM
+		return $s ;
+	}
+
+	function _jp_encoding(&$text, $out_charset, $in_charset)
+	{
+		if ( function_exists('mb_convert_encoding') ) {
+			$text = mb_convert_encoding($text, $out_charset, $in_charset);
+		}
+		return $text;
+	}
+//-----
+	
 }
 ?>

@@ -1,4 +1,7 @@
 <?php
+// 2012-01-01 K.OHWADA
+// PHP 5.3 : ereg is deprecate
+
 //============================================================+
 // File name   : tcpdf.php
 // Begin       : 2002-08-03
@@ -5986,7 +5989,13 @@ if(!class_exists('TCPDF', false)) {
 			if (isset($dash)) {
 				$dash_string = "";
 				if ($dash) {
-					if (ereg("^.+,", $dash)) {
+
+// ---
+// 2012-01-01 PHP 5.3 : ereg is deprecated
+//					if (ereg("^.+,", $dash)) {
+					if (preg_match("/^.+,/", $dash)) {
+// ---
+
 						$tab = explode(",", $dash);
 					} else {
 						$tab = array($dash);

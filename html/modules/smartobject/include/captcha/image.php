@@ -1,4 +1,7 @@
 <?php
+// 2012-01-01 K.OHWADA
+// PHP 5.3 : Assigning the return value of new by reference is now deprecated.
+
 /**
  * Image Creation class for CAPTCHA
  *
@@ -17,7 +20,13 @@ class XoopsCaptchaImage {
 	{
 		static $instance;
 		if(!isset($instance)) {
-			$instance =& new XoopsCaptchaImage();
+
+// ---
+// 2012-01-01 PHP 5.3 : Assigning the return value of new by reference is now deprecated.
+//			$instance =& new XoopsCaptchaImage();
+			$instance =  new XoopsCaptchaImage();
+// ---
+
 		}
 		return $instance;
 	}

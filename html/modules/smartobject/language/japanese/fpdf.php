@@ -1,0 +1,11 @@
+<?php
+//=========================================================
+// Japanese language for SmartObject Module
+// 2008-10-01 K.OHWADA <http://linux.ohwada.jp/>
+// Í­Êþ¼«±óÊýÍè
+//=========================================================
+
+// use in fpdf/language/japanese.php
+define('_MD_POSTEDON',"Åê¹Æ¾ðÊó : ");
+
+?>

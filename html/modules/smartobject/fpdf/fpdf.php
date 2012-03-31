@@ -1,4 +1,6 @@
 <?php
+// $Id: fpdf.php,v 1.3 2012/03/31 10:29:04 ohwada Exp $
+
 // 2008-10-01
 // if(!class_exists('FPDF'))
 // http://community.impresscms.org/modules/newbb/viewtopic.php?topic_id=2510&post_id=23635
