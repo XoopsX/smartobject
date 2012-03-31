@@ -1,4 +1,6 @@
 <?php
+// $Id: menu.php,v 1.3 2012/03/31 10:55:09 ohwada Exp $
+
 // 2008-10-01 K.OHWADA
 // BUG : undefined constant _AM_SOBJECT_ABOUT SMARTOBJECT_URL in "Modules Administration"
 // http://community.impresscms.org/modules/newbb/viewtopic.php?topic_id=2506&post_id=23622
@@ -6,7 +8,7 @@
 // http://community.impresscms.org/modules/newbb/viewtopic.php?topic_id=2509&post_id=23627
 
 /**
-* $Id: menu.php,v 1.2 2012/03/31 10:14:36 ohwada Exp $
+* Id: menu.php 2341 2008-05-21 16:34:21Z malanciault 
 * Module: SmartObject
 * Author: The SmartFactory <www.smartfactory.ca>
 * Licence: GNU

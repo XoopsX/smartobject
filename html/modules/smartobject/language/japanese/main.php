@@ -1,7 +1,7 @@
 <?php
+// $Id: main.php,v 1.2 2012/03/31 10:52:09 ohwada Exp $
 
 /**
-* $Id: main.php,v 1.1 2012/03/31 10:13:33 ohwada Exp $
 * Module: SmartContent
 * Author: The SmartFactory <www.smartfactory.ca>
 * Licence: GNU
