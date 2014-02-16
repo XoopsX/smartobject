@@ -158,7 +158,9 @@ function smart_TableExists($table) {
 	//Verifies that a MySQL table exists
 	$xoopsDB = & Database :: getInstance();
 	$realname = $xoopsDB->prefix($table);
-	$ret = mysql_list_tables(XOOPS_DB_NAME, $xoopsDB->conn);
+	//$ret = mysql_list_tables(XOOPS_DB_NAME, $xoopsDB->conn);
+	$sql = 'SHOW TABLES FROM '.XOOPS_DB_NAME.' LIKE \''.$realname.'\'';
+	$ret = $xoopsDB->queryF($sql);
 	while (list ($m_table) = $xoopsDB->fetchRow($ret)) {
 		if ($m_table == $realname) {
 			$bRetVal = true;
