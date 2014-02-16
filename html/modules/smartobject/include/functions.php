@@ -758,8 +758,8 @@ function & smart_getcorehandler($name, $optional = false) {
 
 // ---
 // 2012-01-01 PHP 5.3 : Assigning the return value of new by reference is now deprecated.
-//			$handlers[$name] =   new $class ($GLOBALS['xoopsDB'], 'xoops');
-			$handlers[$name] = & new $class ($GLOBALS['xoopsDB'], 'xoops');
+			$handlers[$name] =   new $class ($GLOBALS['xoopsDB'], 'xoops');
+//			$handlers[$name] = & new $class ($GLOBALS['xoopsDB'], 'xoops');
 // ---
 
 		}

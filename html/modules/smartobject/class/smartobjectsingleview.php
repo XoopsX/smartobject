@@ -89,8 +89,8 @@ class SmartObjectSingleView {
 
 // ---
 // 2012-01-01 PHP 5.3 : Assigning the return value of new by reference is now deprecated.
-//		$this->_tpl =  new XoopsTpl();
-		$this->_tpl =& new XoopsTpl();
+		$this->_tpl =  new XoopsTpl();
+//		$this->_tpl =& new XoopsTpl();
 // ---
 
 		$vars = $this->_object->vars;

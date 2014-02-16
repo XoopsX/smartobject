@@ -171,8 +171,8 @@ class XoopsCaptcha {
 
 // ---
 // 2012-01-01 PHP 5.3 : Assigning the return value of new by reference is now deprecated.
-//		$captcha_handler =  new $class();
-		$captcha_handler =& new $class();
+		$captcha_handler =  new $class();
+//		$captcha_handler =& new $class();
 // ---
 
 		if(method_exists($captcha_handler, "destroyGarbage")) {

@@ -218,8 +218,8 @@ class SmartPersistableObjectHandler extends XoopsObjectHandler {
 
 // ---
 // 2012-01-01 PHP 5.3 : Assigning the return value of new by reference is now deprecated.
-//    	$obj =  new $this->className($this);
-    	$obj =& new $this->className($this);
+    	$obj =  new $this->className($this);
+//    	$obj =& new $this->className($this);
 // ---
 
 		$obj->setImageDir($this->getImageUrl(), $this->getImagePath());
