@@ -708,7 +708,7 @@ function renderValidationJS( $withtags = true ) {
 		if ( $withtags ) {
 			$js .= "\n<!-- Start Form Validation JavaScript //-->\n<script type='text/javascript'>\n<!--//\n";
 		}
-		$myts =& MyTextSanitizer::getInstance();
+		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 		$formname = $this->getName();
 		$js .= "function xoopsFormValidate_{$formname}(myform) {";
 		// First, output code to check required elements

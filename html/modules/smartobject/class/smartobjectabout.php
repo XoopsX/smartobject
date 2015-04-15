@@ -87,7 +87,7 @@ class SmartobjectAbout
 		 * @todo make the output XHTML compliant
 		 */
 
-		$myts = &MyTextSanitizer::getInstance();
+		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts = &MyTextSanitizer::getInstance();
 
 		Global $xoopsModule;
 

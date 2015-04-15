@@ -379,7 +379,7 @@ class SmartObject extends XoopsObject {
 
 		if($highlight && isset($_GET['keywords']))
 		{
-			$myts =& MyTextSanitizer::getInstance();
+			(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 			$keywords=$myts->htmlSpecialChars(trim(urldecode($_GET['keywords'])));
 			$h= new SmartHighlighter ($keywords, true , 'smart_highlighter');
 			foreach($this->handler->highlightFields as $field) {
@@ -639,7 +639,7 @@ class SmartObject extends XoopsObject {
      */
     function cleanVars()
     {
-        $ts =& MyTextSanitizer::getInstance();
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts =& MyTextSanitizer::getInstance();
         $existing_errors = $this->getErrors();
         $this->_errors = array();
         foreach ($this->vars as $k => $v) {
@@ -774,7 +774,7 @@ class SmartObject extends XoopsObject {
             case 's':
             case 'show':
             	// ML Hack by marcan
-                $ts =& MyTextSanitizer::getInstance();
+                (method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts =& MyTextSanitizer::getInstance();
                 $ret = $ts->htmlSpecialChars($ret);
 
                 if (method_exists($myts, 'formatForML')) {
@@ -786,7 +786,7 @@ class SmartObject extends XoopsObject {
             	// End of ML Hack by marcan
 
             case 'clean':
-				$ts =& MyTextSanitizer::getInstance();
+				(method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts =& MyTextSanitizer::getInstance();
 
 				$ret = smart_html2text($ret);
 				$ret = smart_purifyText($ret);
@@ -801,14 +801,14 @@ class SmartObject extends XoopsObject {
 
             case 'e':
             case 'edit':
-                $ts =& MyTextSanitizer::getInstance();
+                (method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts =& MyTextSanitizer::getInstance();
                 return $ts->htmlSpecialChars($ret);
                 break 1;
             case 'p':
             case 'preview':
             case 'f':
             case 'formpreview':
-                $ts =& MyTextSanitizer::getInstance();
+                (method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts =& MyTextSanitizer::getInstance();
                 return $ts->htmlSpecialChars($ts->stripSlashesGPC($ret));
                 break 1;
             case 'n':
@@ -897,7 +897,7 @@ class SmartObject extends XoopsObject {
             switch (strtolower($format)) {
             case 's':
             case 'show':
-                $ts =& MyTextSanitizer::getInstance();
+                (method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts =& MyTextSanitizer::getInstance();
                 $html = !empty($this->vars['dohtml']['value']) ? 1 : 0;
 
                 $xcode = (!isset($this->vars['doxcode']['value']) || $this->vars['doxcode']['value'] == 1) ? 1 : 0;
@@ -926,7 +926,7 @@ class SmartObject extends XoopsObject {
                 break 1;
             case 'p':
             case 'preview':
-                $ts =& MyTextSanitizer::getInstance();
+                (method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts =& MyTextSanitizer::getInstance();
                 $html = !empty($this->vars['dohtml']['value']) ? 1 : 0;
                 $xcode = (!isset($this->vars['doxcode']['value']) || $this->vars['doxcode']['value'] == 1) ? 1 : 0;
                 $smiley = (!isset($this->vars['dosmiley']['value']) || $this->vars['dosmiley']['value'] == 1) ? 1 : 0;
@@ -936,7 +936,7 @@ class SmartObject extends XoopsObject {
                 break 1;
             case 'f':
             case 'formpreview':
-                $ts =& MyTextSanitizer::getInstance();
+                (method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts =& MyTextSanitizer::getInstance();
                 return htmlspecialchars($ts->stripSlashesGPC($ret), ENT_QUOTES);
                 break 1;
             case 'n':
@@ -962,12 +962,12 @@ class SmartObject extends XoopsObject {
                 break 1;
             case 'p':
             case 'preview':
-                $ts =& MyTextSanitizer::getInstance();
+                (method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts =& MyTextSanitizer::getInstance();
                 return $ts->stripSlashesGPC($ret);
                 break 1;
             case 'f':
             case 'formpreview':
-                $ts =& MyTextSanitizer::getInstance();
+                (method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts =& MyTextSanitizer::getInstance();
                 return htmlspecialchars($ts->stripSlashesGPC($ret), ENT_QUOTES);
                 break 1;
             case 'n':

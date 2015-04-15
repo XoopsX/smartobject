@@ -446,7 +446,7 @@ function smart_getLinkedUnameFromId($userid = 0, $name = 0, $users = array (), $
 			$user = & $users[$userid];
 		}
 		if (is_object($user)) {
-			$ts = & MyTextSanitizer :: getInstance();
+			(method_exists('MyTextSanitizer', 'sGetInstance') and $ts =& MyTextSanitizer::sGetInstance()) || $ts = & MyTextSanitizer :: getInstance();
 			$username = $user->getVar('uname');
 			$fullname = '';
 			$fullname2 = $user->getVar('name');

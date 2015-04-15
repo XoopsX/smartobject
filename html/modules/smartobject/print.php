@@ -12,7 +12,7 @@ require_once SMARTOBJECT_ROOT_PATH.'class/smartloader.php';
 require_once XOOPS_ROOT_PATH.'/class/template.php';
 
 $xoopsTpl = new XoopsTpl();
-$myts =& MyTextSanitizer::getInstance();
+(method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
 $xoopsConfig['sitename'] = $myts->displayTarea($xoopsConfig['sitename']);
 
 

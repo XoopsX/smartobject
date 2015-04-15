@@ -493,7 +493,7 @@ class SmartPersistableObjectHandler extends XoopsObjectHandler {
             return $ret;
         }
 
-        $myts =& MyTextSanitizer::getInstance();
+        (method_exists('MyTextSanitizer', 'sGetInstance') and $myts =& MyTextSanitizer::sGetInstance()) || $myts =& MyTextSanitizer::getInstance();
         while ($myrow = $this->db->fetchArray($result)) {
             //identifiers should be textboxes, so sanitize them like that
             $ret[$myrow[$this->keyName]] = empty($this->identifierName)?1:$myts->displayTarea($myrow[$this->identifierName]);
