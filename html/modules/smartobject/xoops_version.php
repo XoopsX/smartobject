@@ -26,7 +26,7 @@ $modversion['name'] = "SmartObject Framework";
 // ---
 // version 1.10
 // $modversion['version'] = '1.0.1';
-$modversion['version'] = '1.11';
+$modversion['version'] = '1.12';
 // ---
 
 $modversion['description'] = "Framework providing functionnalities to SmartModules";
