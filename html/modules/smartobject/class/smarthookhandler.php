@@ -17,7 +17,7 @@ class SmartHookHandler {
      * @static
      * @staticvar   object
 	 */
-	function &getInstance()
+	public static function &getInstance()
 	{
 		static $instance;
 		if (!isset($instance)) {
