@@ -76,7 +76,7 @@ class SmartobjectAbout
 	}
 
 	function sanitize($value) {
-		$myts = MyTextSanitizer::getInstance();
+		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 		return $myts->displayTarea($value, 1);
 	}
 

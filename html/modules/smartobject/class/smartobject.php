@@ -593,7 +593,7 @@ class SmartObject extends XoopsObject {
     	global $xoopsModuleConfig;
 
     	$ret = $this->getVar($key, 'n');
-    	$myts = MyTextSanitizer::getInstance();
+    	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 
     	$control = isset($this->controls[$key]) ? $this->controls[$key] : false;
 		$form_editor = isset($control['form_editor']) ? $control['form_editor'] : 'textarea';

@@ -39,7 +39,7 @@ class SmartMetaGen
 
 	function SmartMetaGen($title, $keywords=false, $description=false, $categoryPath=false)
 	{
-		$this->_myts = MyTextSanitizer::GetInstance();
+		(method_exists('MyTextSanitizer', 'sGetInstance') and $this->_myts = MyTextSanitizer::sGetInstance()) || $this->_myts = MyTextSanitizer::GetInstance();
 		$this->setCategoryPath($categoryPath);
 		$this->setTitle($title);
 		$this->setDescription($description);
@@ -48,7 +48,7 @@ class SmartMetaGen
 			$keywords = $this->createMetaKeywords();
 		}
 
-/*		$myts = MyTextSanitizer::getInstance();
+/*		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 		if (method_exists($myts, 'formatForML')) {
 			$keywords = $myts->formatForML($keywords);
 			$description = $myts->formatForML($description);
@@ -63,7 +63,7 @@ class SmartMetaGen
  	*
  	* @credit psylove
  	*
- 	* @var string $string Chaine de caractère
+ 	* @var string $string Chaine de caractï¿½re
 	 * @return boolean
  	*/
 	function emptyString($var)
@@ -82,7 +82,7 @@ class SmartMetaGen
 	 */
 	function generateSeoTitle($title='', $withExt=true) {
 	    // Transformation de la chaine en minuscule
-	    // Codage de la chaine afin d'éviter les erreurs 500 en cas de caractères imprévus
+	    // Codage de la chaine afin d'ï¿½viter les erreurs 500 en cas de caractï¿½res imprï¿½vus
 	    $title   = rawurlencode(strtolower($title));
 
 	    // Transformation des ponctuations
@@ -91,15 +91,15 @@ class SmartMetaGen
 	    $rep_pat = array(  "-"  ,   "-"  ,   "-"  ,   "-"  ,   "-"  , "-100" ,   "-"  ,   "-"  ,   "-"  ,   "-"  ,   "-"  ,   "-"  ,  "-"   ,   "-"  ,   "-"  ,   "-"  ,  "-"   ,   "-"  , "-at-" ,   "-"  ,   "-"   ,  "-"  ,   "-"  ,   "-"  ,   "-"  ,   "-"  ,   "-"  ,   "-" );
 	    $title   = preg_replace($pattern, $rep_pat, $title);
 
-    	// Transformation des caractères accentués
-    	//                  °        è        é        ê        ë        ç        à        â        ä        î        ï        ù        ü        û        ô        ö
+    	// Transformation des caractï¿½res accentuï¿½s
+    	//                  ï¿½        ï¿½        ï¿½        ï¿½        ï¿½        ï¿½        ï¿½        ï¿½        ï¿½        ï¿½        ï¿½        ï¿½        ï¿½        ï¿½        ï¿½        ï¿½
     	$pattern = array("/%B0/", "/%E8/", "/%E9/", "/%EA/", "/%EB/", "/%E7/", "/%E0/", "/%E2/", "/%E4/", "/%EE/", "/%EF/", "/%F9/", "/%FC/", "/%FB/", "/%F4/", "/%F6/");
 	    $rep_pat = array(  "-"  ,   "e"  ,   "e"  ,   "e"  ,   "e"  ,   "c"  ,   "a"  ,   "a"  ,   "a"  ,   "i"  ,   "i"  ,   "u"  ,   "u"  ,   "u"  ,   "o"  ,   "o"  );
     	$title   = preg_replace($pattern, $rep_pat, $title);
 
-		$tableau = explode("-", $title); // Transforme la chaine de caractères en tableau
+		$tableau = explode("-", $title); // Transforme la chaine de caractï¿½res en tableau
 		$tableau = array_filter($tableau, array($this, "emptyString")); // Supprime les chaines vides du tableau
-		$title   = implode("-", $tableau); // Transforme un tableau en chaine de caractères séparé par un tiret
+		$title   = implode("-", $tableau); // Transforme un tableau en chaine de caractï¿½res sï¿½parï¿½ par un tiret
 
 	    if (sizeof($title) > 0)
 	    {

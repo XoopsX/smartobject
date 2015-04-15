@@ -48,7 +48,7 @@ function xoops_comment($msg)
 function xoops_debug_vardump($var) 
 {
 	if (class_exists('MyTextSanitizer')) {
-		$myts = MyTextSanitizer::getInstance();
+		(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
 		xoops_debug($myts->displayTarea(var_export($var, true)));
 	} else {
 		xoops_debug(var_export($var, true));

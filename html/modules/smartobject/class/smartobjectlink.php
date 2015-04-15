@@ -83,7 +83,7 @@ class SmartobjectLink extends SmartObject {
     function link($full=false) {
         $ret = $this->getVar('link','e');
         if ($full) {
-        	$myts = MyTextSanitizer::getInstance();
+        	(method_exists('MyTextSanitizer', 'sGetInstance') and $myts = MyTextSanitizer::sGetInstance()) || $myts = MyTextSanitizer::getInstance();
         	$ret = $myts->displayTarea($ret);
         	return $ret;
         } else {
