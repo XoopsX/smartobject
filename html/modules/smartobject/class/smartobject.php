@@ -761,7 +761,7 @@ class SmartObject extends XoopsObject {
     * @param string $format format to use for the output
     * @return mixed formatted value of the variable
     */
-    function getVar($key, $format = 's')
+    function &getVar($key, $format = 's')
     {
     	global $myts;
 
